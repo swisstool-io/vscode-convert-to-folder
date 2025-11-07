@@ -2,15 +2,15 @@
   "name": "convert-to-folder",
   "displayName": "Convert to Folder",
   "description": "Convert extension-less files into folders with a single click",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "SwissTool",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SwissTool-io/convert-to-folder"
+    "url": "https://github.com/SwissTool-io/vscode-convert-to-folder"
   },
   "bugs": {
-    "url": "https://github.com/SwissTool-io/convert-to-folder/issues"
+    "url": "https://github.com/SwissTool-io/vscode-convert-to-folder/issues"
   },
   "categories": [
     "Other"
