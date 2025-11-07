@@ -1,0 +1,76 @@
+{
+  "name": "convert-to-folder",
+  "displayName": "Convert to Folder",
+  "description": "Convert extension-less files into folders with a single click",
+  "version": "1.0.0",
+  "publisher": "SwissTool",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SwissTool-io/convert-to-folder"
+  },
+  "bugs": {
+    "url": "https://github.com/SwissTool-io/convert-to-folder/issues"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "folder",
+    "file",
+    "convert",
+    "refactor",
+    "organize",
+    "directory",
+    "structure"
+  ],
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onCommand:convertToFolder.convert"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "convertToFolder.convert",
+        "title": "Convert to Folder"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "convertToFolder.convert",
+          "when": "resourceScheme == file && resourceExtname == '' && !explorerResourceIsFolder",
+          "group": "2_workspace@100"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "esbuild src/extension.ts --bundle --minify --platform=node --outfile=out/extension.js --external:vscode --format=cjs",
+    "watch": "esbuild src/extension.ts --bundle --platform=node --outfile=out/extension.js --sourcemap --watch --external:vscode --format=cjs",
+    "build:test": "tsc -p tsconfig.test.json",
+    "pretest": "npm run compile && npm run build:test",
+    "test": "node out/test/runTests.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.19.24",
+    "@types/sinon": "^17.0.4",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-electron": "^2.5.2",
+    "chai": "^6.2.0",
+    "esbuild": "^0.24.0",
+    "glob": "^11.0.3",
+    "mocha": "^11.7.5",
+    "sinon": "^21.0.0",
+    "typescript": "^5.9.3"
+  }
+}

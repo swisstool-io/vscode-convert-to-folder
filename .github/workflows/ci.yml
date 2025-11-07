@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    env:
+      CI: true
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [20.x]
+
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Clean install
+        run: npm ci --no-audit --no-fund --prefer-offline
+
+      - name: Compile
+        run: npm run compile
+
+      - name: Run tests (Linux)
+        if: runner.os == 'Linux'
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' npm test
+        timeout-minutes: 10
+
+      - name: Run tests (macOS/Windows)
+        if: runner.os != 'Linux'
+        run: npm test
+        timeout-minutes: 10
+
+      # Only package on Ubuntu to verify it builds
+      - name: Package extension
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          npm install -g @vscode/vsce
+          vsce package
+
+      - name: Upload VSIX artifact
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: convert-to-folder-vsix
+          path: '*.vsix'
+          retention-days: 7
