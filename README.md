@@ -24,9 +24,10 @@ Then you delete it, make a folder, and start over — two steps too many.
 
 1. In the **Explorer**, right-click a file.  
 2. Choose **“Convert to Folder”**.  
-3. The file is replaced by a folder:
-   - Has content → creates `index` inside  
-   - Empty → creates folder only
+3. The extension will:
+   - If the file has **unsaved changes**, it prompts you to save before converting.  
+   - If the file has content, it creates a folder and moves the file’s contents into an `index` file.  
+   - If the file is empty, it simply creates an empty folder.
 
 **Command:**  
 `convertToFolder.convert`
