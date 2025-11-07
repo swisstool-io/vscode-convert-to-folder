@@ -39,7 +39,7 @@ You can also run it from the Command Palette (`Ctrl+Shift+P` / `⇧⌘P`).
 
 **From Marketplace:**
 ```bash
-ext install swisstool-io.convert-to-folder
+ext install swisstool.convert-to-folder
 ````
 
 **From source:**
