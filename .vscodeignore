@@ -1,0 +1,43 @@
+# Source files
+src/**
+*.ts
+tsconfig*.json
+
+# Tests
+out/test/**
+**/*.test.js
+
+# Development files
+.vscode/**
+.vscode-test/**
+.gitignore
+.eslintrc*
+*.map
+
+# Dependencies
+node_modules/**
+
+# Documentation for development
+.github/**
+
+# Build artifacts
+*.vsix
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+.tmp/

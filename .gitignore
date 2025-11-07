@@ -1,0 +1,32 @@
+# Compiled output
+out/
+dist/
+*.vsix
+
+# Dependencies
+node_modules/
+
+# VS Code test downloads
+.vscode-test/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+.tmp/
