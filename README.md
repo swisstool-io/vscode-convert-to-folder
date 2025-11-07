@@ -1,7 +1,7 @@
 # Convert to Folder
 
 [![CI](https://github.com/swisstool-io/vscode-convert-to-folder/actions/workflows/ci.yml/badge.svg)](https://github.com/swisstool-io/vscode-convert-to-folder/actions/workflows/ci.yml)
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/swisstool-io.convert-to-folder.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=swisstool-io.convert-to-folder)
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/swisstool.convert-to-folder.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=swisstool.convert-to-folder)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 
